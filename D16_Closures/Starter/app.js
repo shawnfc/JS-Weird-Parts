@@ -1,11 +1,17 @@
-function greet (whattosay) {
-    return function (name) {
-        console.log(whattosay + ' ' + name);
+function makeGreeting (language) {
+    return function (firstname, lastname) {
+        if(language === 'en') {
+            console.log('Hello ' + firstname + ' ' + lastname);
+        }
+
+        if(language === 'es') {
+            console.log('Hola ' + firstname + ' ' + lastname);
+        }
     }
 }
 
-greet('Hi')('Shawn');
+var greetEnglish = makeGreeting('en');
+var greetSpanish = makeGreeting('en');
 
-var sayHi =  greet('Hi');
-
-sayHi('Dave');
+greetEnglish('Shawn', 'Conrad');
+greetSpanish('Freshco', 'Flows');
