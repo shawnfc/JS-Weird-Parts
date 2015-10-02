@@ -18,3 +18,10 @@ Person.prototype.getFormalFullName = function(){
 };
 
 console.log(jane.getFormalFullName());
+
+
+String.prototype.isLengthGreaterThan = function(limit) {
+  return this.length > limit;
+};
+
+console.log("Freshco".isLengthGreaterThan(6));
