@@ -25,3 +25,12 @@ String.prototype.isLengthGreaterThan = function(limit) {
 };
 
 console.log("Freshco".isLengthGreaterThan(6));
+
+
+Array.prototype.myCustomFeature = 'cool';
+
+var arr = ['John', 'Jane', 'Jim'];
+
+for (var prop in arr) {
+    console.log("prop" + ": " + arr[prop]);
+}
