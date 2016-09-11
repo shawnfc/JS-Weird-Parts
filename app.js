@@ -1,24 +1,15 @@
-function a() {
-    console.log(this);
-    this.firstname = "Freshco";
-}
+(function greet(name) {
+    console.log(name);
+})("Mr");
 
-a();
-console.log(firstname);
+var greetFunc = function (name) {
+    console.log(name);
+}("Shawn");
 
-var c = {
-    name: 'The C object',
-    log: function () {
-        var self = this;
+(function(global, name, age, sport) {
+    var greeting = "Please welcome";
+    global.greeting = "Ladies and gentlemen this is";
+    console.log(greeting + ' ' + name + ' who is ' + age + ' and loves ' + sport + '.');
+}(window, 'Freshco', 47, 'Tennis'));
 
-        console.log(self);
-
-        var setname = function (newname) {
-            self.name = newname;
-        };
-        setname("The Set Name Call");
-        console.log(self);
-    }
-};
-
-c.log();
+console.log(greeting + ' Shawn Freshco!');
