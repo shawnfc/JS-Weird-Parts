@@ -1,49 +1,28 @@
-var person = {
-    firstname: "John",
-    lastname: "Doe",
-    getFullName: function () {
-        var fullname = this.firstname + ' ' + this.lastname;
-        return fullname;
-    }
+//FUNCTIONAL PROGRAMMING
+//creating a function the takes an array and another function that will do the final work.
+function mapForEach(arr, fn) {
+    var newArr = [];
+    for (var i=0; i < arr.length; i++) {
+        newArr.push(
+            fn(arr[i])
+        )
+    };
+    return newArr;
+}
+
+var arr1 = [1, 2, 3];
+console.log(arr1);
+
+//Apply the array to use
+var arr3 = mapForEach(arr1, function(item) { //add the function of work that needs to be done
+    return item * 2;
+});
+
+console.log(arr3);
+
+var checkPastLimit = function (limiter, item) {
+    return item > limiter;
 };
 
-var logName = function(lang1, lang2) {
-    console.log('Logged: ' + this.getFullName());
-    console.log("Arguments: " + lang1 + ' ' + lang2);
-    console.log('-----------------')
-};
-
-var logPersonName = logName.bind(person);
-
-logPersonName("Shawn", "Conrad");
-
-logName.call(person, 'Spanish', 'English');
-
-logName.apply(person, ['French', 'Italian']);
-
-//function borrowing
-var person2 = {
-    firstname: "Jane",
-    lastname: "Doe"
-};
-
-console.log(person.getFullName.apply(person2));
-
-
-//function currying: creating a copy of a function with preset parameters
-function multiply(a, b) {
-    return a * b;
-};
-
-var multiplyByTwo = multiply.bind(this, 2); //set 2 as the first parameter
-
-console.log(multiplyByTwo(4));
-
-
-
-
-
-
-
-
-
+var arr4 = mapForEach(arr1, checkPastLimit.bind(this, 1));
+console.log(arr4)
